@@ -1,11 +1,9 @@
 import requests
 import pandas as pd
-from datetime import date
 from load import Loader
 
 req = requests.get('https://covid-19-report-api.vercel.app/api/v1/cases/latest')
 data  = req.json()
-today = date.today()
 
 country = []
 date = []
