@@ -2,7 +2,7 @@ import mysql.connector
 import pandas as pd
 
 query1 = """
-        CREATE TABLE IF NOT EXISTS demo_project4 (
+        CREATE TABLE IF NOT EXISTS covid_data (
                 country varchar(100),
                 confirmed  BIGINT,
                 deaths  BIGINT,
@@ -11,20 +11,20 @@ query1 = """
         """
 
 query2 = """
-        INSERT INTO demo_project4 VALUES(
+        INSERT INTO covid_data VALUES(
                 '{country}',{confirmed},{deaths}
             );
         """
 
 query3 = """
-        DELETE FROM demo_project4;
+        DELETE FROM covid_data;
         """
 
 # Provide your DB details
-HOST=" <DB HOST> "
-DB=" <DB NAME> "
-USER=" <USER NAME> "
-PASSWORD=" <DB PASSWORD> "
+HOST = " <DB HOST> "
+DB = " <DB NAME> "
+USER = " <USER NAME> "
+PASSWORD = " <DB PASSWORD> "
 
 class Loader:
         
