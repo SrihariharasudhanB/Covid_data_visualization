@@ -6,10 +6,8 @@ req = requests.get('https://covid-19-report-api.vercel.app/api/v1/cases/latest')
 data  = req.json()
 
 country = []
-date = []
 confirmed = []
 deaths = []
-recovered = [] 
 
 for datum in data['data']:
     if 'countryregion' in datum and 'confirmed' in datum and 'deaths' in datum:
