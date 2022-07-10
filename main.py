@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 from datetime import date
-from load_demo import Loader
+from load import Loader
 
 req = requests.get('https://covid-19-report-api.vercel.app/api/v1/cases/latest')
 data  = req.json()
@@ -14,18 +14,15 @@ deaths = []
 recovered = [] 
 
 for datum in data['data']:
-    if 'countryregion' in datum and 'confirmed' in datum and 'deaths' in datum: #and 'recovered' in datum:
+    if 'countryregion' in datum and 'confirmed' in datum and 'deaths' in datum:
         country.append(datum['countryregion'])
-        #date.append(datum['lastupdate'][:10])
         confirmed.append(datum['confirmed'])
         deaths.append(datum['deaths'])
-        #recovered.append(datum['recovered'])
 
 data_dict = {
     "country": country,
     "confirmed": confirmed,
-    "deaths": deaths,
-    #"recovered": recovered
+    "deaths": deaths
 }
 
 df = pd.DataFrame(data_dict)
