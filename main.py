@@ -37,8 +37,9 @@ def Main():
     print('Data refreshed!')
 
 if __name__ == '__main__':
-    keep_alive()
+    
     while True:
+        keep_alive()
         Main()
         time.sleep(43200)
         keep_alive()
